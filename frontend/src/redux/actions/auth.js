@@ -1,7 +1,7 @@
 import {REGISTER_SUCCESS, REGISTER_FAIL, SET_AUTH_LOADING, REMOVE_AUTH_LOADING} from './types'
 
 
-export default register = ( first_name, last_name, username, password, re_password) => async dispatch =>{
+export const register = ( first_name, last_name, username, password, re_password) => async dispatch =>{
     const const_body = JSON.stringify({first_name, last_name, username, password, re_password})
 
     try {
@@ -14,9 +14,7 @@ export default register = ( first_name, last_name, username, password, re_passwo
             body: const_body
 
         })
-
         // ACCIONES
-
         // set a const of modification
         dispatch({
             type:SET_AUTH_LOADING
@@ -48,3 +46,4 @@ export default register = ( first_name, last_name, username, password, re_passwo
         
     }
 }
+

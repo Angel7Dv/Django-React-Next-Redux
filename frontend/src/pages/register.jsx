@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import Layout from './components/Layout'
 
+import {useSelector, useDispatch} from 'react-redux'
+import {register} from '../redux/actions/auth'
 
+
+import Loader from 'react-loader-spinner'
 
 export default function Register() {
+  const initStatus = useSelector(e => e.auth)
 
   const [formData, setFormData] = useState({
     first_name: "",
@@ -12,18 +17,16 @@ export default function Register() {
     password: "",
     re_password: ""
   })
+  const {first_name, last_name, username, password, re_password} = formData // destructuring
+
+  const dispatch = useDispatch()
 
   const sumbmit = (e)=>{
     e.preventDefault()
-    console.log(formData)
-    e.target.reset()
-
+    if(dispatch && dispatch !== null && dispatch !== undefined  ){
+      dispatch(register(first_name, last_name, username, password, re_password)) // action register
+    }
   }
-
-
-
-
-
 
   return (
     <Layout
