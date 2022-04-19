@@ -46,58 +46,58 @@ export default function Register() {
           autoComplete='off'
 
         >
-          <div class="mb-3">
-            <label class="form-label">first name</label>
+          <div className="mb-3">
+            <label className="form-label">first name</label>
             <input
               value={formData.first_name}
               name='first_name'
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              type="text" class="form-control" />
+              type="text" className="form-control" />
           </div>
-          <div class="mb-3">
-            <label class="form-label">last name</label>
+          <div className="mb-3">
+            <label className="form-label">last name</label>
             <input
               value={formData.last_name}
               name='last_name'
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              type="text" class="form-control" />
+              type="text" className="form-control" />
           </div>
-          <div class="mb-3">
-            <label class="form-label">Username</label>
+          <div className="mb-3">
+            <label className="form-label">Username</label>
             <input
               value={formData.username}
               name='username'
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              type="text" class="form-control" />
+              type="text" className="form-control" />
           </div>
 
-          {/* <div class="mb-3">
-            <label class="form-label">Email address</label>
+          {/* <div className="mb-3">
+            <label className="form-label">Email address</label>
             <input 
             value={formData.first_name}
-            type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+            <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
           </div> */}
-          <div class="mb-3">
-            <label class="form-label">Password</label>
+          <div className="mb-3">
+            <label className="form-label">Password</label>
             <input
               value={formData.password}
               name='password'
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-              type="password" class="form-control" id="exampleInputPassword1" />
+              type="password" className="form-control"/>
           </div>
-          <div class="mb-3">
-            <label class="form-label">confirm password</label>
+          <div className="mb-3">
+            <label className="form-label">confirm password</label>
             <input
               name='re_password'
               onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
               value={formData.re_password}
 
-              type="password" class="form-control" id="exampleInputPassword1" />
+              type="password" className="form-control"/>
           </div>
 
 
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary">Submit</button>
         </form>
 
       </div>
