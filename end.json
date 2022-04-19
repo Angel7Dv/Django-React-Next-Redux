@@ -1,0 +1,7 @@
+{
+    "first_name" : "first_name",
+    "last_name" : "last_name",
+    "username" : "username",
+    "password" : "password*12",
+    "re_password" : "password*12"
+}
