@@ -3,12 +3,22 @@ import Layout from './components/Layout'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {register} from '../redux/actions/auth'
-
+import { useRouter } from 'next/router'
 
 import Loader from 'react-loader-spinner'
 
 export default function Register() {
   const initStatus = useSelector(e => e.auth)
+
+  // evita que usuarios logeados se puedan volver a registar
+
+  const router = useRouter()
+  if(typeof window !== 'undefined' && initStatus.isauthenticated){
+    router.push("/")
+  }
+
+
+
 
   const [formData, setFormData] = useState({
     first_name: "",
@@ -100,7 +110,7 @@ export default function Register() {
           </div>
 
 
-          <button type="submit" className="btn btn-primary">Submit</button>
+          <button type="submit" className="btn btn-primary">Register</button>
         </form>
 
       </div>
