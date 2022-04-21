@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Navbar from './Navbar'
 
+import {useDispatch, useSelector} from 'react-redux'
+import {check_auth_status} from '../../redux/actions/auth'
 
 const Layout = ({ title, description, children }) => {
+    const is_auth = useSelector(e=> e.auth.isauthenticated)
+    const dispatch = useDispatch()
+    
+    const verify = ()=>{
+        if(is_auth && dispatch && dispatch !== undefined && dispatch !== null){
+            dispatch(check_auth_status())
+        }
+    }
+    useEffect(()=>{
+        verify()
+    }, [dispatch])
 
     return (
         <>

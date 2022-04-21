@@ -8,8 +8,8 @@ const backend_api = process.env.BACKEND_DJANGO_API
 export default async (request, response) =>{
 
     if(request.method === 'POST'){
-        const {username, password} = request.body //data from form
-        const body = JSON.stringify({username, password})
+        // const {username, password} = request.body //data from form
+        const body = JSON.stringify(request.body)
         try {
             const apiRes = await fetch(`${backend_api}token/`, { // backend 
                 method: 'POST',

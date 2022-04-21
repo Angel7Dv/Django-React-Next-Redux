@@ -43,7 +43,25 @@ const authReducer = (state = initial_state, actions) => {
             return { ...state }
 
         case types.LOGOUT_SUCCESS:
-            return { ...state, isauthenticated: false }
+            return { ...state, isauthenticated: false, user:null }
+
+
+        // LOAD USER
+        case types.GET_USER_FAIL:
+            return { ...state }
+
+        case types.GET_USER_SUCCESS:
+            return { ...state, isauthenticated: true, user: payload }
+
+        // CHECK USER
+        case types.VERIFY_FAIL:
+            return { ...state, isauthenticated: false, user:null }
+
+        case types.VERIFY_SUCCESS:
+            return { ...state, isauthenticated: true}
+
+
+
 
 
         default:

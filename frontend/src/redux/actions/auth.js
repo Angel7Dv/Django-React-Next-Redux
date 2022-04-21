@@ -130,3 +130,64 @@ export const logout = () => async dispatch => {
 
     }
 }
+
+export const get_user = () => async dispatch => {
+    try {
+        const res = await fetch('/api/account/user/',{
+            method: 'GET',
+            headers:{
+                'Accept': 'applications/json'
+            }
+        })
+        const data  = await res.json()
+
+        if(res.status===200){
+            dispatch({
+                type: types.GET_USER_SUCCESS,
+                payload: data.success
+            })
+        }else{
+            dispatch({
+                type: types.GET_USER_FAIL,
+            })
+        }
+    } catch (error) {
+        dispatch({
+            type: types.VERIFY_FAIL,
+        })
+
+    }
+}
+
+
+export const check_auth_status = () => async dispatch => {
+    try {
+        const res = await fetch('/api/account/verify/',{
+            method: 'GET',
+            headers:{
+                'Accept': 'applications/json'
+            }
+        })
+        const data  = await res.json()
+
+        if(res.status===200){
+            dispatch({
+                type: types.VERIFY_SUCCESS,
+            })
+            dispatch(get_user()) // finalmente si el token es valido volvemos a logearnos
+
+        }else{
+            dispatch({
+                type: types.VERIFY_FAIL,
+            })
+
+
+        }
+    } catch (error) {
+        dispatch({
+            type: types.VERIFY_FAIL,
+        })
+    
+    }
+}
+

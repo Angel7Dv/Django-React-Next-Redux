@@ -1,7 +1,14 @@
 {
-    "first_name" : "first_name",
-    "last_name" : "last_name",
-    "username" : "username",
-    "password" : "password*12",
-    "re_password" : "password*12"
+    "form":{
+        "first_name": "first_name",
+        "last_name": "last_name",
+        "username": "username",
+        "password": "password*12",
+        "re_password": "password*12"
+    },
+    "cookie":{
+        "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1MDU2NzM2MCwiaWF0IjoxNjUwNDgwOTYwLCJqdGkiOiI2NjFkNTk2ZWMzMDE0ODJhOTYyYTZmMGViOGM3MTNiMyIsInVzZXJfaWQiOjN9.ONieJPL62PtdBciQRZuvQouIxdJvVmyiHfp1HqBaEuA",
+        "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1MDU5MTA4MSwiaWF0IjoxNjUwNTA0NjgxLCJqdGkiOiJmZmU3MmM1OWM4ZmQ0NjA2Yjg5ZDZlMGJkOGU3MjgwYSIsInVzZXJfaWQiOjN9.tAKNVSVw1dtN0dyGpkh66fC-zlSl6bwwbL3VCnZKL-I",
+        "csrftoken": "8khWLqvPuLZ3DxGyCaqthowxJ53mcTwi5vCyOGS6Fo65sIgE61jtDX3gOscomyBV"
+    }
 }
