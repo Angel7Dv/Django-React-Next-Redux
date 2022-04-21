@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
+from .view import home
 
 urlpatterns = [
     path('api/token/', TokenObtainPairView.as_view()),
@@ -26,4 +27,5 @@ urlpatterns = [
     path('api/account/', include('account.urls')),
 
     path('admin/', admin.site.urls),
+    path('', home, name="home"),
 ]

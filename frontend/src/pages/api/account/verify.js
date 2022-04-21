@@ -11,9 +11,11 @@ export default async (request, response) => {
     if (request.method === 'GET') {
         const cookies = cookie.parse(request.headers.cookie ?? '') // realiza un llamado al headers donde guardamos las cookies de login
         
-        const access = cookie.access
-        const body = JSON.stringify({access})
+        const access = cookies.access
+        const body = JSON.stringify({"token": cookies.access}) // daba problemas al mandar solo "access" que requeria "token"
 
+
+        // console.log(body)
         if (!access) { // if no login
             return response.status(404).json({ error: "user no loged" })
         } else { // estamos logeados
@@ -28,16 +30,14 @@ export default async (request, response) => {
                     },
                     body: body
                 })
-                const data = await resApi.json()
-                
+                console.log(body)
 
+                const data = await resApi.json()
                 if (resApi.status === 200) {
                     return response.status(200).json({ success: "token refresh revify", data: data.success })
                 } else {
-                    return response.status(500).json({error: "token expired"})
-
+                    return response.status(500).json({error: data})
                 }
-
             } catch (error) {
                 return response.status(500).json({ error: "error de backend api" })
             }

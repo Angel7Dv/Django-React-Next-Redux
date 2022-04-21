@@ -15,6 +15,10 @@ export const GET_USER_FAIL = "GET_USER_FAIL"
 export const VERIFY_SUCCESS = "VERIFY_SUCCESS"
 export const VERIFY_FAIL = "VERIFY_FAIL"
 
+// refresh types
+export const REFRESH_SUCCESS = "REFRESH_SUCCESS"
+export const REFRESH_FAIL = "REFRESH_FAIL"
+
 
 
 // Logout types

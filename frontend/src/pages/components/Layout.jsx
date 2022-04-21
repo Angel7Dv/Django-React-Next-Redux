@@ -14,6 +14,11 @@ const Layout = ({ title, description, children }) => {
             dispatch(check_auth_status())
         }
     }
+    const load_user = ()=>{
+        if(dispatch && dispatch !== undefined && dispatch !== null){
+          dispatch(get_user())
+        }
+      }
     useEffect(()=>{
         verify()
     }, [dispatch])

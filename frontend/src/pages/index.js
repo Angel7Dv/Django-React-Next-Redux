@@ -3,7 +3,7 @@ import Layout from './components/Layout'
 
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {get_user} from '../redux/actions/auth'
+import {get_user, check_refresh_token, } from '../redux/actions/auth'
 
 const Home = () => {
 
@@ -11,14 +11,16 @@ const Home = () => {
   const user = useSelector(e => e.auth.user)
   const dispatch = useDispatch()
 
-  const load_user = ()=>{
+
+  const check_user = ()=>{
     if(dispatch && dispatch !== undefined && dispatch !== null){
-      dispatch(get_user())
+      dispatch(check_refresh_token())
     }
   }
 
   useEffect( () => {
-    load_user()
+    get_user()
+    check_user()
   }, [])
 
 

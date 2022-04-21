@@ -191,3 +191,30 @@ export const check_auth_status = () => async dispatch => {
     }
 }
 
+export const check_refresh_token = () => async dispatch => {
+    try {
+        const res = await fetch('/api/account/refresh/',{
+            method: 'GET',
+            headers:{
+                'Accept': 'applications/json'
+            }
+        })
+        const data  = await res.json()
+        if(res.status===200){
+            dispatch({
+                type: types.REFRESH_SUCCESS,
+            })
+            dispatch(check_auth_status()) // finalmente si el token es valido volvemos a logearnos
+        }else{
+            dispatch({
+                type: types.REFRESH_FAIL,
+            })
+        }
+    } catch (error) {
+        dispatch({
+            type: types.REFRESH_FAIL,
+        })
+    
+    }
+}
+

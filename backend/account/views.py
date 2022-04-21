@@ -66,9 +66,11 @@ class RegisterView(APIView):
 
 class LoadUserView(APIView):
     queryset = User.objects.none() 
+
     def get(self, request, format=None):
         try:
             user = request.user
+            print(request.user)
             user = UserSerializer(user)
             return Response(
                 {'success': user.data},

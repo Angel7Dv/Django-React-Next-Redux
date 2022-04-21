@@ -16,7 +16,7 @@ export default async (request, response) => {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
-                        'Authorization': `Bearer ${cookies.access}`,
+                        'Authorization': `Bearer ${cookies.access}`, // da una respuesta al backend con nuestro usuario
                     }
                 })
                 const data = await resApi.json()

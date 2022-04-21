@@ -43,7 +43,7 @@ const authReducer = (state = initial_state, actions) => {
             return { ...state }
 
         case types.LOGOUT_SUCCESS:
-            return { ...state, isauthenticated: false, user:null }
+            return { ...state, isauthenticated: false, user: null }
 
 
         // LOAD USER
@@ -55,10 +55,17 @@ const authReducer = (state = initial_state, actions) => {
 
         // CHECK USER
         case types.VERIFY_FAIL:
-            return { ...state, isauthenticated: false, user:null }
+            return { ...state, isauthenticated: false, user: null }
 
         case types.VERIFY_SUCCESS:
-            return { ...state, isauthenticated: true}
+            return { ...state, isauthenticated: true }
+
+        // CHECK USER REFRESH
+        case types.REFRESH_FAIL:
+            return { ...state, isauthenticated: false, user: null }
+
+        case types.REFRESH_SUCCESS:
+            return { ...state }
 
 
 
